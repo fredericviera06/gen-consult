@@ -1,0 +1,360 @@
+{
+  "title": "Générateur compte rendu consultation Poly Cholet",
+  "description": "",
+  "questions": [
+    {
+      "index": 0,
+      "title": "email",
+      "type": "TEXT",
+      "helpText": ""
+    },
+    {
+      "index": 1,
+      "title": "date",
+      "type": "TEXT",
+      "helpText": ""
+    },
+    {
+      "index": 2,
+      "title": "genre",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 3,
+      "title": "ID",
+      "type": "TEXT",
+      "helpText": ""
+    },
+    {
+      "index": 4,
+      "title": "age",
+      "type": "TEXT",
+      "helpText": ""
+    },
+    {
+      "index": 5,
+      "title": "motif",
+      "type": "CHECKBOX",
+      "helpText": "pour"
+    },
+    {
+      "index": 6,
+      "title": "antécédents:",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 7,
+      "title": "traitement habituel:",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 8,
+      "title": "facteurs de risque cardiovasculaire",
+      "type": "CHECKBOX",
+      "helpText": "Facteurs de risque cardiovasculaires : "
+    },
+    {
+      "index": 9,
+      "title": "sur le plan fonctionnel:",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 10,
+      "title": "TA",
+      "type": "CHECKBOX",
+      "helpText": "Ce jour, à l'examen clinique"
+    },
+    {
+      "index": 11,
+      "title": "Poids (kg)",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 12,
+      "title": "Taille (cm)",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 13,
+      "title": "a l'examen clinique",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 14,
+      "title": "Electrocardiogramme:",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 15,
+      "title": "ETT",
+      "type": "CHECKBOX",
+      "helpText": "ETT:"
+    },
+    {
+      "index": 16,
+      "title": "Sur le plan biologique:",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 17,
+      "title": "Au total:",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 18,
+      "title": "Thérapeutique:",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 19,
+      "title": "Examens complémentaires (cardiologiques)",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 20,
+      "title": "Examens complémentaires (non cardiologiques)",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 21,
+      "title": "operateur si autre examen",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 22,
+      "title": "coro ou consult",
+      "type": "MULTIPLE_CHOICE",
+      "helpText": ""
+    },
+    {
+      "index": 23,
+      "title": "Coro",
+      "type": "PAGE_BREAK",
+      "helpText": ""
+    },
+    {
+      "index": 24,
+      "title": "Indication de la coronarographie",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 25,
+      "title": "FEVG (sur le plan echographique)",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 26,
+      "title": "hémodynamique",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 27,
+      "title": "a l'examen clinique",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 28,
+      "title": "Electrocardiogramme:",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 29,
+      "title": "Coronarographie (voie)",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 30,
+      "title": "coronarographie (dominance)",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 31,
+      "title": "Coro simplifiée",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 32,
+      "title": "Fermuture",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 33,
+      "title": "Suites ",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 34,
+      "title": "au total",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 35,
+      "title": "ttt de sortie",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 36,
+      "title": "Examens complémentaires ",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 37,
+      "title": "Codage et destinataire",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 38,
+      "title": "images/video coro",
+      "type": "FILE_UPLOAD",
+      "helpText": ""
+    },
+    {
+      "index": 39,
+      "title": "hospit",
+      "type": "PAGE_BREAK",
+      "helpText": ""
+    },
+    {
+      "index": 40,
+      "title": "histoire de la maladie",
+      "type": "PARAGRAPH_TEXT",
+      "helpText": ""
+    },
+    {
+      "index": 41,
+      "title": "images hospit",
+      "type": "FILE_UPLOAD",
+      "helpText": ""
+    },
+    {
+      "index": 42,
+      "title": "Angioplastie",
+      "type": "PAGE_BREAK",
+      "helpText": ""
+    },
+    {
+      "index": 43,
+      "title": "Indication",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 44,
+      "title": "Resultats angioplastie",
+      "type": "PARAGRAPH_TEXT",
+      "helpText": ""
+    },
+    {
+      "index": 45,
+      "title": "Coronarographie (voie)",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 46,
+      "title": "Fermuture",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 47,
+      "title": "Suites ",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 48,
+      "title": "Codage et destinataire",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 49,
+      "title": "images / video dilat",
+      "type": "FILE_UPLOAD",
+      "helpText": ""
+    },
+    {
+      "index": 50,
+      "title": "Post coro",
+      "type": "PAGE_BREAK",
+      "helpText": ""
+    },
+    {
+      "index": 51,
+      "title": "date ATC",
+      "type": "TEXT",
+      "helpText": ""
+    },
+    {
+      "index": 52,
+      "title": "Examen clinique",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 53,
+      "title": "Troponinémie à J1 : ",
+      "type": "TEXT",
+      "helpText": ""
+    },
+    {
+      "index": 54,
+      "title": "point de ponction",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 55,
+      "title": "Education thérapeutique",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 56,
+      "title": "Annonce coro",
+      "type": "PAGE_BREAK",
+      "helpText": ""
+    },
+    {
+      "index": 57,
+      "title": "Indication de la coronarographie/angioplastie",
+      "type": "CHECKBOX",
+      "helpText": ""
+    },
+    {
+      "index": 58,
+      "title": "Modification thérapeutique",
+      "type": "CHECKBOX",
+      "helpText": ""
+    }
+  ]
+}
