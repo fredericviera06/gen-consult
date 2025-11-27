@@ -24,20 +24,6 @@ const CONFIG = {
       '{{ECO}}': 21, '{{operateur}}': 22, '{{HDM}}': 41
     }
   },
-  ett: {
-    templateId: '1_sTiRD_jC3S-smQdhuL5W9ZGL-vetGhVuq7hfE3iVk0',
-    folderId: '1FbMO_uoyA1q0WTi20etPEcw8Lm3SKPJV',
-    suffix: 'ETT',
-    fields: {
-      '{{date}}': 3, '{{genre}}': 4, '{{nom}}': 5, '{{DN}}': 6,
-      '{{motif ETT}}': 7, '{{antecedents}}': 8, '{{traitement}}': 9,
-      '{{FDRCV}}': 10, '{{fonctionnel}}': 11, '{{TA}}': 12,
-      '{{poids}}': 13, '{{taille}}': 14, '{{EC}}': 15,
-      '{{ECG}}': 16, '{{ETT}}': 17, '{{lipide}}': 18,
-      '{{au total}}': 19, '{{modif ttt}}': 20, '{{suivi}}': 21,
-      '{{ECO}}': 22, '{{operateur}}': 23
-    }
-  },
   coro: {
     templateId: '1nlYqN8U5GyrQ7BuFjN2cphUnOH8EMSt3xN-FJGYNRf4',
     folderId: '1j9yRuXBe5tN3AMd4QsyvxHm0jZn_lC4I',
@@ -86,7 +72,39 @@ const CONFIG = {
       '{{antecedents}}': 7, '{{FDRCV}}': 9, '{{fonctionnel}}': 10,
       '{{exam indic}}': 56, '{{modif ttt}}': 57
     }
+  },
+  ett: {
+  templateId: '1tX7fn-P2FIy_LmIxnNvAYmrggcPl6ilhRa3Ynr9yfu4', // ✅ Votre template ETT
+  folderId: '1bBiiCtfZ1pS7y66yNKLpvY3bVn0_LKkM',             // ✅ Nouveau dossier ETT
+  suffix: 'ETT',
+  fields: {
+    // ===== EN-TÊTE DU DOCUMENT (Section commune) =====
+    '{{date}}': 2,           // Colonne B - Date (index formulaire 1)
+    '{{genre}}': 3,          // Colonne C - M/Mme (index formulaire 2)
+    '{{nom}}': 4,            // Colonne D - ID patient (index formulaire 3)
+    '{{DN}}': 5,             // Colonne E - Age (index formulaire 4)
+    '{{antecedents}}': 7,    // Colonne G - Antécédents (index formulaire 6)
+    '{{FDRCV}}': 9,          // Colonne I - Facteurs de risque (index formulaire 8)
+    '{{traitement}}': 8,     // Colonne H - Traitement (index formulaire 7)
+    
+    // ===== SECTION ETT SPÉCIFIQUE =====
+    // Note: Vous avez dit "BG=indication=58"
+    // BG = colonne 59 (A=1, B=2, ... BG=59)
+    // Donc index dans le tableau = 58 (car les tableaux commencent à 0)
+    
+    '{{motif ETT}}': 58,     // Colonne BG - Indication ETT
+    '{{mopho}}': 59,         // Colonne BH - Morphologie VG
+    '{{FE}}': 60,            // Colonne BI - FEVG
+    '{{cine}}': 61,          // Colonne BJ - Cinétique
+    '{{valve}}': 62,         // Colonne BK - Valvulopathies
+    '{{PRVG}}': 63,          // Colonne BL - Pressions remplissage
+    '{{droite}}': 64,        // Colonne BM - Cavités droites
+    '{{pericarde}}': 65,     // Colonne BN - Péricarde
+    '{{aorte}}': 66,         // Colonne BO - Aorte ascendante
+    '{{OG}}': 67,            // Colonne BP - Oreillette gauche
+    '{{total ETT}}': 68      // Colonne BQ - Conclusion
   }
+}
 };
 
 // ============================================================
