@@ -1,3 +1,4 @@
+form-structure-complete.json
 {
   "title": "Générateur compte rendu consultation Poly Cholet",
   "description": "",
@@ -18,7 +19,11 @@
       "index": 2,
       "title": "genre",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "M",
+        "Me"
+      ]
     },
     {
       "index": 3,
@@ -36,109 +41,395 @@
       "index": 5,
       "title": "motif",
       "type": "CHECKBOX",
-      "helpText": "pour"
+      "helpText": "pour",
+      "choices": [
+        "Bilan cardiovasculaire",
+        "Suivi du diabète",
+        "évoluant depuis plus de 10ans",
+        "Suivi de cardiopathie ischémique",
+        "Bilan préopératoire",
+        "Bilan d'une douleur thoracique",
+        "bilan de souffle cardiaque",
+        "Bilan de dyspnée",
+        "Bilan d'AVC",
+        "Bilan d'AIT",
+        "Bilan de malaise"
+      ]
     },
     {
       "index": 6,
       "title": "antécédents:",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "il n'y a pas d'antécédent cardiovasculaire personnel particulier",
+        "hypothyroidie",
+        "AVCi",
+        "AOMI",
+        "stripping des varices",
+        "SAOS appareillé",
+        "athérome carotidien",
+        "cardiopathie ischémique"
+      ]
     },
     {
       "index": 7,
       "title": "traitement habituel:",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Il n'y a pas de traitement particulier."
+      ]
     },
     {
       "index": 8,
       "title": "facteurs de risque cardiovasculaire",
       "type": "CHECKBOX",
-      "helpText": "Facteurs de risque cardiovasculaires : "
+      "helpText": "Facteurs de risque cardiovasculaires : ",
+      "choices": [
+        "Néant",
+        "HTA",
+        "tabagisme actif",
+        "tabagisme sevré",
+        "dyslipidémie",
+        "hérédité coronarienne",
+        "surcharge pondérale",
+        "diabète",
+        ">10 ans"
+      ]
     },
     {
       "index": 9,
       "title": "sur le plan fonctionnel:",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "il n'y a pas de plainte",
+        "on note",
+        "une douleur thoracique typique à type d'angor",
+        "une douleur thoracique atypique",
+        "une douleur thoracique",
+        "à type de serrement retrosternal",
+        "à type de brulure retrosternale",
+        "à type de pointe sous mammaire gauche",
+        "sans lien avec l'effort",
+        "en lien avec l'effort",
+        "à type de barre retrosternale",
+        "sans irradiation",
+        "avec irradiation vers l'épaule gauche",
+        "et des épisodes de palpitations.",
+        "des épisodes de palpitations",
+        "ainsi qu'une dyspnée",
+        "une dyspnée",
+        "NYHA 2",
+        "NYHA 2-3",
+        "NYHA 3",
+        "NYHA 4",
+        "ainsi que",
+        "des malaises syncopaux",
+        "des épisodes de lipothymie",
+        "avec prodromes",
+        "depuis quelques semaines",
+        "depuis quelques mois",
+        "depuis quelques jours",
+        "on note également",
+        "une asthénie diurne",
+        "une asthénie diurne importante (Epworth>9)",
+        "une somnolence diurne",
+        "ainsi que",
+        "des ronflements",
+        "des céphalées matinales",
+        "une nycturie",
+        "des sueurs nocturnes",
+        "Echelle d'Epworth:"
+      ]
     },
     {
       "index": 10,
       "title": "TA",
       "type": "CHECKBOX",
-      "helpText": "Ce jour, à l'examen clinique"
+      "helpText": "Ce jour, à l'examen clinique",
+      "choices": [
+        "La tension artérielle habituelle est satisfaisante (PASm<135 mmHg) y compris en automesure",
+        "La tension artérielle habituelle (PASm) est comprise entre 135mmHg et 150mmHg, y compris en automesure",
+        "Hypertension artérielle > 150mmHg habituellement (y compris en automesure)",
+        "automesure tensionnelle (moyenne sur 3 jours) :"
+      ]
     },
     {
       "index": 11,
       "title": "Poids (kg)",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "70"
+      ]
     },
     {
       "index": 12,
       "title": "Taille (cm)",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "175"
+      ]
     },
     {
       "index": 13,
-      "title": "a l'examen clinique",
+      "title": "à l'examen clinique",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "le poids est stable",
+        "on note une prise de poids récente",
+        "l'examen cardiovasculaire est sans particularité",
+        "il existe des signes d'insuffisance cardiaque globale",
+        "il existe des signes d'insuffisance cardiaque gauche",
+        "il existe des signes d'insuffisance cardiaque droite",
+        "on note un souffle systolique aortique avec présence du B2",
+        "on note un souffle systolique aortique sans présence du B2, irradiant vers les carotides",
+        "il n'y a pas de souffle carotidien",
+        "il n'y a pas de signes d'insuffisance cardiaque droite ou gauche",
+        "il existe des signes d'insuffisance veineuse"
+      ]
     },
     {
       "index": 14,
-      "title": "Electrocardiogramme:",
+      "title": "Électrocardiogramme:",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "rythme sinusal régulier sans trouble de la conduction ni de la repolarisation",
+        "significatif",
+        "Rythme sinusal régulier",
+        "ESV",
+        "FA",
+        "70-80bpm",
+        "rapide",
+        "Pas de trouble de la conduction",
+        "Pas de trouble de la repolarisation",
+        "Bloc de branche droit",
+        "Bloc de branche gauche",
+        "il n'y a pas de pré excitation",
+        "FC (BPM)"
+      ]
     },
     {
       "index": 15,
       "title": "ETT",
       "type": "CHECKBOX",
-      "helpText": "ETT:"
+      "helpText": "ETT:",
+      "choices": [
+        "L'échographie transthoracique retrouve un ventricule gauche non dilaté, on note une bonne FEVG sans trouble de la cinétique segmentaire. Les cavités droites ne sont pas dilatées, il n'y a pas de valvulopathie mitro-aortique significative, l'aorte ascendante n'est pas dilatée dans sa portion analysable, le péricarde est libre",
+        "L'échographie transthoracique retrouve un ventricule gauche non dilaté, on note une bonne FEVG sans trouble de la cinétique segmentaire. Les cavités droites ne sont pas dilatées, l'aorte ascendante n'est pas dilatée dans sa portion analysable, le péricarde est libre",
+        "VG de morphologie normale",
+        "HVG concentrique",
+        "Cardiopathie dilatée",
+        "Cardiomyopathie dilatée avec altération de la FEVG. Pressions de remplissage élevées",
+        "Cardiopathie ischémique avec troubles de la cinétique segmentaires",
+        "Bonne FEVG",
+        "RAO serré à fraction d'éjection préservée",
+        "RAO serré à fraction d'éjection altérée",
+        "RAo lache",
+        "Calcification valve aortique",
+        "sclérose aortique modérée",
+        "IM sévère à réévaluer",
+        "IM modérée",
+        "IM minime",
+        "IAo minime",
+        "IAo modérée",
+        "IAo sévère, à réévaluer",
+        "Calcification valvulaire mitrale",
+        "Pas de valvulopathie mitro aortique significative",
+        "Cavités droites non dilatées, sans HTAP",
+        "Pericarde libre",
+        "Aorte ascendante non dilatée",
+        "Pas d'arguments pour une cardiopathie infectieuse. Pas de végétations ni d'abcès visibles",
+        "Pas d'arguments échographiques pour une cardiopathie emboligène. Pas de FOP ni d'ASIA visible.",
+        "coup d’œil échographique : Bonne FEVG, pas de valvulopathies mitro-aortiques significatives",
+        "Pour mémoire: Bonne FEVG, pas de valvulopathie connue",
+        "OG non dilatée",
+        "dilatation minime de l'OG",
+        "OG modérément dilatée",
+        "OG très dilatée",
+        "OG dilatée",
+        "dilatation du massif bi auriculaire",
+        "Gradient moyen transaortique :"
+      ]
     },
     {
       "index": 16,
       "title": "Sur le plan biologique:",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Le dernier bilan lipidique retrouve un LDL correct à priori",
+        "je n'ai pas son dernier bilan lipidique",
+        "je rappelle que le LDL cholestérol doit être inférieur à 0,55 g/l.",
+        "je rappelle que le LDL cholestérol doit être inférieur à 0,7g/l.",
+        "je rappelle que le LDL cholestérol doit être inférieur à 1g/l."
+      ]
     },
     {
       "index": 17,
       "title": "Au total:",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Le bilan cardio-vasculaire au repos est sans particularité.",
+        "Pas de contre-indication pour une intervention y compris sous anesthésie générale.",
+        "Stabilité sur le plan cardiovasculaire",
+        "Pas de contre indication à l'AG"
+      ]
     },
     {
       "index": 18,
       "title": "Thérapeutique:",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Pas de modification thérapeutique",
+        "Poursuite de son traitement habituel",
+        "Arret des excitants",
+        "Arret du tabagisme",
+        "Poursuite de l'activité physique recommandée (exemple : 30mn de marche rapide X 3 / semaine ou natation)",
+        "Régime hypocalorique",
+        "Bas de contention force 2",
+        "Éviction des efforts violents",
+        "Consommation modérée de sel (max 6g/j)",
+        "ajout",
+        "Natispray 0.15 mg/dose 2 pulv sub linguale si douleur thoracique (à prendre en position assise, si la douleur persiste, appeler le SAMU)",
+        "Kardegic 75mg le matin",
+        "Duoplavin 75-75mg le matin",
+        "remplace d'aspirine / Kardegic",
+        "Duoplavin 75-75mg à débuter 5 jours avant la coronarographie",
+        "Plavix 75 mg le matin à débuter 5 jours avant la coronarographie.",
+        "Bisoprolol 1.25mg le matin",
+        "Bisoprolol 2.5mg le matin",
+        "Ramipril 1.25mg le matin",
+        "Xarelto 20mg le soir",
+        "Atorvastatine 10mg le soir",
+        "Atorvastatine 40mg le soir",
+        "Ezetimibe 10mg le soir",
+        "Rosuvastatine 10mg + Ezetimibe 10mg (Liporosa 10-10mg) le soir",
+        "Perindopril 5mg + Amlodipine 10mg (Coveram 5-10mg)",
+        "Furosemide 40mg le matin",
+        "Diffu K 600mg le matin",
+        "Forxiga 10 mg le matin",
+        "Aldactone 25mg le matin",
+        "Entresto 24-26mg matin et soir pendant 2 semaines puis 49-51mg matin et soir",
+        "A débuter après 3 jours d'arret du ramipril ( ou autre IEC)",
+        "Nicopatch 21 mg par jour, Nicopass 1 mg 8 par jour si besoin",
+        "Nicopatch 14 mg par jour, Nicopass 1 mg 8 par jour si besoin",
+        "Semaglutide (Ozempic ) 0.25mg 1 injection /semaine (s) pendant 1 mois puis 0.50mg/s pendant 1 mois puis 1mg / s pendant 1 mois.",
+        "Sémaglutide (Wegowy) 0.25mg 1 injection / semaine (s) pendant 1 mois puis 0.5mg 1 / s pendant 1 mois puis 1mg / s pendant 1 mois puis 1.7mg/s pendant 1 mois puis 2.4mg /s (dose d'entretien)",
+        "Tirzépatide (Mounjaro) 2.5mg 1 injection/ semaine pendant 1 mois puis 5mg/ semaine pendant 1 mois puis 7.5mg / semaine."
+      ]
     },
     {
       "index": 19,
       "title": "Examens complémentaires (cardiologiques)",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Pas d'examen complémentaire cardiologique systématique",
+        "Holter ECG",
+        "Epreuve d'effort.",
+        "score calcique (TDM)",
+        "sans urgence",
+        "à titre systématique (avant ou après l'intervention)",
+        "après l'intervention",
+        "automesure tensionnelle",
+        "Polygraphie ventilatoire : recherche d'apnée du sommeil",
+        "Polygraphie ventilatoire : recherche d'apnée du sommeil chez patient avec comorbidités cardio-respiratoires sévères.",
+        "Polygraphie ventilatoire après arrêt pendant une semaine de la PPC",
+        "Echographie transthoracique",
+        "dans 1 an",
+        "dans 1 à 3 mois",
+        "Echographie de stress",
+        "Scintigraphie myocardique",
+        "démaquillée.",
+        "maquillée",
+        "Coronarographie : risques et objectifs de l'examen expliqués au patient ce jour",
+        "Choc électrique externe dans 1 mois",
+        "puis",
+        "discussion avec rythmologue de l’intérêt d'une ablation de cette FA",
+        "Inscription pour le suivi des insuffisants cardiaques (IMPLICITY)",
+        "Inscription pour le suivi des insuffisants cardiaques (TwoCan)",
+        "Inscription pour le suivi des insuffisants cardiaques (SATELIA)",
+        "ETO à jeun (recherche d'arguments pour une cardiopathie emboligène)",
+        "Angio TDM pan aortique (visualisation des accès fémoraux et des tortuosités aortiques, distance des ostia des coronaires par rapport à la valve aortique)",
+        "Bilan préopératoire: EDTSAO, Panoramique dentaire, radiographie des sinus, ECBU",
+        "Prochaine consultation dans 1 an",
+        "Prochaine consultation dans 3 ans",
+        "Prochaine consultation dans 5 ans"
+      ]
     },
     {
       "index": 20,
       "title": "Examens complémentaires (non cardiologiques)",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        ".",
+        "Consultation diététique (régime peu salé, hypocalorique) - RNPC",
+        "Echographie des TSAO",
+        "Ionogramme sanguin, créatininémie dans 7 jours et dans un mois",
+        "ionogramme sanguin, creatininémie",
+        "ferritinémie, CST",
+        "TSH",
+        "Bilan lipidique à jeun",
+        "bilan hépatique - CPK",
+        "Doppler Veineux des MI",
+        "Doppler Artériel des MI",
+        "Doppler Artério Veineux des MI",
+        "Dosage du BNP",
+        "recherche d'athérome sténosant",
+        "bilan de malaise",
+        "bilan d'AVC/AIT",
+        "bilan de claudication intermittente",
+        "Scintigraphie osseuse au technétium (recherche d'amylose) , Dosage des chaines légères libres sériques avec calcul du ratio et de la difference, EPS et urinaires, recherche proteinurie de Bence Jones (en milieu hospitalier)",
+        "Bilan d'HTA resistante",
+        "Dosage de l'albuminurie sur échantillon urinaire exprimé en ratio albuminurie/créatininurie si RAC >3mg/mmol refaire 2 dosages dans les 3 mois et consultation néphrologique",
+        "Ionogramme sanguin, créatininémie, natriurèse, créatininurie et protéinurie des 24h",
+        "Dosage plasmatique de rénine et aldostérone apres arret des IEC / antialdostérone",
+        "Dosage de métanéphrine et normétanéphrine urinaires",
+        "Cortisol libre urinaire (CLU) et test de freinage rapide à la Dexaméthasone 1mg",
+        "Angio-TDM abdominal (centrée sur les surrénales)",
+        "doppler des artères rénales (rechercher une HTA rénovasculaire)",
+        "Bilan biologique, insuffisance cardiaque: NFS, fer sérique, ferritinémie, coefficient de saturation de la transferrine, ionogramme, créatininémie, TSH , en cas de carrence mariale merci de prendre contact avec l'HAD pour mettre en place une cure de ferinject. email : accueil@had-mcb.fr",
+        "1 injection / semaine de Sémaglutide"
+      ]
     },
     {
       "index": 21,
       "title": "operateur si autre examen",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        ".",
+        "Radiologue",
+        "Angiologue",
+        "IDE à domicile (sauf weekend et jour fériés)",
+        "Laboratoire d'analyse médicale",
+        "diététicien (ne) nutritionniste",
+        "médecin nucléaire"
+      ]
     },
     {
       "index": 22,
       "title": "coro ou consult",
       "type": "MULTIPLE_CHOICE",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "consult",
+        "coro",
+        "hospit",
+        "Angioplastie",
+        "Post coro",
+        "Annonce coro",
+        "ETT"
+      ]
     },
     {
       "index": 23,
@@ -150,89 +441,263 @@
       "index": 24,
       "title": "Indication de la coronarographie",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Angor d'effort",
+        "Epreuve d'effort positive",
+        "electriquement",
+        "trouble du rythme ventriculaire",
+        "Score calcique > 1000",
+        "douleur thoracique",
+        "bilan de CMD hypokinétique",
+        "Echographie de stress positive",
+        "Scintigraphie positive",
+        "ischémie territoire IVA",
+        "ischémie territoire CD",
+        "ischémie territoire Cx",
+        "> 2 segments",
+        "bilan préopératoire d'un RAO serré symptomatique"
+      ]
     },
     {
       "index": 25,
-      "title": "FEVG (sur le plan echographique)",
+      "title": "FEVG (sur le plan échographique)",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "FEVG normale.",
+        "Altération de la FEVG 40-50%",
+        "Altération de la FEVG 35-40%",
+        "Altération sévère de la < FEVG 35%",
+        "pas de valvulopathie significative",
+        "Rao serré"
+      ]
     },
     {
       "index": 26,
       "title": "hémodynamique",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "120/80 mmHg"
+      ]
     },
     {
       "index": 27,
-      "title": "a l'examen clinique",
+      "title": "à l'examen clinique",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "le poids est stable",
+        "on note une prise de poids récente",
+        "l'examen cardiovasculaire est sans particularité",
+        "il existe des signes d'insuffisance cardiaque globale",
+        "il existe des signes d'insuffisance cardiaque gauche",
+        "il existe des signes d'insuffisance cardiaque droite",
+        "on note un souffle systolique aortique avec présence du B2",
+        "on note un souffle systolique aortique sans présence du B2, irradiant vers les carotides",
+        "il n'y a pas de souffle carotidien",
+        "il n'y a pas de signes d'insuffisance cardiaque droite ou gauche"
+      ]
     },
     {
       "index": 28,
-      "title": "Electrocardiogramme:",
+      "title": "Électrocardiogramme:",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "rythme sinusal régulier sans trouble de la conduction ni de la repolarisation",
+        "significatif",
+        "Rythme sinusal régulier",
+        "ESV",
+        "FA",
+        "70-80bpm",
+        "rapide",
+        "Pas de trouble de la conduction",
+        "Pas de trouble de la repolarisation",
+        "Bloc de branche droit",
+        "Bloc de branche gauche",
+        "il n'y a pas de pré excitation",
+        "FC (BPM)"
+      ]
     },
     {
       "index": 29,
       "title": "Coronarographie (voie)",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "radiale gauche",
+        "radiale droite",
+        "distale (compressif 2H)",
+        "et",
+        "fémorale droite",
+        "fémorale gauche",
+        "humérale gauche",
+        "4F",
+        "5F",
+        "6F"
+      ]
     },
     {
       "index": 30,
       "title": "coronarographie (dominance)",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "droite",
+        "gauche",
+        "équilibrée"
+      ]
     },
     {
       "index": 31,
       "title": "Coro simplifiée",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "La coronarographie est normale",
+        "Le pontage est perméable",
+        "Les pontages sont perméables",
+        "Il existe des lésions tritronculaires",
+        "Il existe des lésions bitronculaires",
+        "Il existe une lesion (monotronculaire)",
+        "l'IVA est irrégulière",
+        "la circonflexe est irrégulière",
+        "la coronaire droite est irrégulière",
+        "et calcifiée"
+      ]
     },
     {
       "index": 32,
-      "title": "Fermuture",
+      "title": "Fermeture",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "compression radiale",
+        "compression fémorale",
+        "fémoseal",
+        "angioseal",
+        "proglide"
+      ]
     },
     {
       "index": 33,
       "title": "Suites ",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Les suites sont simples",
+        "permettant un retour à domicile le jour même",
+        "permettant un retour à domicile le lendemain"
+      ]
     },
     {
       "index": 34,
       "title": "au total",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Coronarographie diagnostique normale",
+        "Coronarographie diagnostique dans les limites de la normale",
+        "Coronaires discrètement irrégulières sans lésion significative.",
+        "Coronaires athéromateuses",
+        "traitement médical de première intention",
+        "Succes d'angioplastie",
+        "du tronc commun",
+        "de l'IVA",
+        "de la diagonale 1",
+        "de la diagonale 2",
+        "de l'artère circonflexe",
+        "de la Marginale",
+        "de l'artère coronaire droite",
+        "au ballon actif",
+        "avec mise en place",
+        "d'un stent actif",
+        "de deux stents actifs",
+        "de trois stents actifs"
+      ]
     },
     {
       "index": 35,
       "title": "ttt de sortie",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Poursuite du traitement habituel",
+        "ajout",
+        "Natispray 0.15 mg/dose 2 pulv sub linguale si douleur thoracique (à prendre en position assise, si la douleur persiste, appeler le SAMU)",
+        "Kardegic 75mg le matin",
+        "Bisoprolol 1.25mg le matin",
+        "duoplavin 75/75mg le matin pendant 6 mois",
+        "duoplavin 75/75mg le matin pendant 1 an",
+        "brilique 90mg matin et soir pendant 6 mois",
+        "brilique 90mg matin et soir pendant 1 an",
+        "Éviction des efforts violents",
+        "Arret de la metformine pendant 48H",
+        "Atorvastatine 40mg le soir",
+        "Atorvastatine 80mg le soir",
+        "Duoplavin 75/75mg à débuter 7 jours avant l'angioplastie",
+        "Arret de la Metformine pendant 48H (post coronarographie)",
+        "ne pas arreter le traitement (duoplavin) le jour de l'angioplastie.",
+        "WEGOVY (sémaglutide) 0.25mg 1 injection / semaine (s) pendant 1 mois puis 0.5mg 1 / s pendant 1 mois puis 1mg / s pendant 1 mois puis 1.7mg/s pendant 1 mois puis 2.4mg /s (dose d'entretien)"
+      ]
     },
     {
       "index": 36,
       "title": "Examens complémentaires ",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "néant",
+        "Scintigraphie myocardique",
+        "Echographie de stress",
+        "IRM",
+        "à la recherche d'une ischémie myocardique",
+        "et",
+        "de viabilité",
+        "ionogramme sanguin, créatininémie",
+        "troponinémie à J1",
+        "Echographie des TSAO",
+        "TDM pan aortique et des artères fémorales",
+        "ECBU, radio des sinus, panoramique dentaire",
+        "Consultation chirurgicale",
+        "Bilan pré opératoire d'une chirurgie cardiaque",
+        "Angioplastie programmée"
+      ]
     },
     {
       "index": 37,
       "title": "Codage et destinataire",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Consult J0 (à coter pour l'AM ):cs+MPC+MCS",
+        "Consult J0 (à coter pour le matin) :cs+MPC+MCS",
+        "si USC : YYYY015",
+        "Coro (DDQH009 + YYYY260)",
+        "FFR (DDQF202)",
+        "Recanalisation phase aigue : DDPF002+DDQH009+YYYY260",
+        "ATC 1 vaisseau ( DDAF006 + YYYY250)",
+        "ATC 1 Vx ballon actif (DDAF001 + YYYY250)",
+        "ATC 1 Vx ballon + coro (DDAF10 + YYYY290)",
+        "ATC 2 vaisseaux (DDAF004 + YYYY290)",
+        "ATC 3 Vaisseaux (DDAF009 + YYYY290)",
+        "ATC 1 vaisseau +coro (DDAF008 + YYYY290)",
+        "ATC 2 vaisseaux + coro (DDAF007 + YYYY290)",
+        "Arterio selectif d'un vaisseau autre parietal ou visceral (ECQH015)",
+        "Coro + controle plusieurs PAC (DDQH013 + YYYY280)",
+        "Coro + controle 1 PAC (DDQH014 + YYYY280)",
+        "DGQH006 Artériographie globale de l'aorte thoracique, par voie artérielle transcutanée",
+        "CTO 1 Vx DDPF002 + YYYY290",
+        "Destinataire : Dr VIERA",
+        "Destinataire : Dr GACEM",
+        "Consult J1 matin :cs08+mpc+mcs"
+      ]
     },
     {
       "index": 38,
-      "title": "images/video coro",
+      "title": "images/vidéo coro",
       "type": "FILE_UPLOAD",
       "helpText": ""
     },
@@ -264,11 +729,14 @@
       "index": 43,
       "title": "Indication",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Angioplastie programmée"
+      ]
     },
     {
       "index": 44,
-      "title": "Resultats angioplastie",
+      "title": "Résultats angioplastie",
       "type": "PARAGRAPH_TEXT",
       "helpText": ""
     },
@@ -276,29 +744,83 @@
       "index": 45,
       "title": "Coronarographie (voie)",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "radiale gauche",
+        "radiale droite",
+        "distale (compressif 2H)",
+        "et",
+        "fémorale droite",
+        "fémorale gauche",
+        "humérale gauche",
+        "4F",
+        "5F",
+        "6F"
+      ]
     },
     {
       "index": 46,
-      "title": "Fermuture",
+      "title": "Fermeture",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "compression radiale",
+        "compression fémorale",
+        "fémoseal",
+        "angioseal",
+        "proglide"
+      ]
     },
     {
       "index": 47,
       "title": "Suites ",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Les suites sont simples",
+        "permettant un retour à domicile le jour même",
+        "permettant un retour à domicile le lendemain"
+      ]
     },
     {
       "index": 48,
       "title": "Codage et destinataire",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Consult J0 (à coder l'AM ): cs+MPC+mcs",
+        "Consult J0 (à coder le matin) : cs+MPC+mcs",
+        "Consult J1: cs08+MPC+mcs",
+        "si USC : YYYY015",
+        "Coro (DDQH009 + YYYY260)",
+        "coro avec ventriculographie (DDQH012 + YYYY270)",
+        "FFR (DDQF202)",
+        "ATC 1 vaisseau ( DDAF006 + YYYY250)",
+        "ATC 1 Vx ballon actif (DDAF001 + YYYY250)",
+        "ATC 1 Vx ballon + coro (DDAF10 + YYYY290)",
+        "ATC 1 Vx + coro (DDAF008 + YYYY290)",
+        "ATC 2 vaisseaux sans coro (DDAF004 + YYYY270)",
+        "ATC 3 vaisseaux sans coro (DDAF003 + YYYY270)",
+        "ATC 3 Vaisseaux + coro (DDAF009 + YYYY290)",
+        "ATC 2 vaisseaux + coro (DDAF007 + YYYY290)",
+        "Arterio selectif d'un vaisseau autre parietal ou visceral (ECQH015)",
+        "Coro + controle plusieurs PAC (DDQH013 + YYYY280)",
+        "Coro + controle 1 PAC (DDQH014 + YYYY280)",
+        "DDFF001 Athérectomie rotationnelle",
+        "Lithotritie sans coro (DDNF240 + YYYY250)",
+        "Lithotritie avec coro (DDNF775 + YYYY250)",
+        "DGQH006 artériographie de l'aorte thoracique",
+        "DDQH0013 Artériographie coronaire avec angiographie de plusieurs pontages coronaires sans ventriculographie gauche, par voie artérielle transcutanée",
+        "CTO 1 Vx DDPF002 + YYYY290",
+        "YYYY082 Tentative d'angioplastie d'un vaisseau coronaire, d'une artère subclavière, viscérale ou périphérique, en cas de non franchissement de la sténose",
+        "phase aigue: DDPF002+DDQH009+YYYY260",
+        "Destinataire : Dr VIERA",
+        "Destinataire : Dr GACEM"
+      ]
     },
     {
       "index": 49,
-      "title": "images / video dilat",
+      "title": "images / vidéo dilat",
       "type": "FILE_UPLOAD",
       "helpText": ""
     },
@@ -318,7 +840,10 @@
       "index": 52,
       "title": "Examen clinique",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "l'examen cardiovasculaire est sans particularité"
+      ]
     },
     {
       "index": 53,
@@ -330,13 +855,19 @@
       "index": 54,
       "title": "point de ponction",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "artère radiale perméable sans écchymose"
+      ]
     },
     {
       "index": 55,
-      "title": "Education thérapeutique",
+      "title": "Éducation thérapeutique",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Il est rappelé au patient que la double antiagrégation doit etre poursuivie pour une durée minimale et incompressible de 1 mois. En cas d'urgence (saignement) il devra se rapprocher de nous ou du Samu (15)"
+      ]
     },
     {
       "index": 56,
@@ -348,13 +879,245 @@
       "index": 57,
       "title": "Indication de la coronarographie/angioplastie",
       "type": "CHECKBOX",
-      "helpText": ""
+      "helpText": "",
+      "choices": [
+        "Score calcique > 1000",
+        "Ischémie myocardique significative à la scintigraphie myocardique"
+      ]
     },
     {
       "index": 58,
       "title": "Modification thérapeutique",
       "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "Poursuite du traitement habituel",
+        "Ajout Duoplavin 75-75mg à débuter 7 jours avant la Coronarographie / Angioplastie",
+        "Arret de l'Aspirine"
+      ]
+    },
+    {
+      "index": 59,
+      "title": "ETT",
+      "type": "PAGE_BREAK",
       "helpText": ""
+    },
+    {
+      "index": 60,
+      "title": "Date",
+      "type": "TEXT",
+      "helpText": ""
+    },
+    {
+      "index": 61,
+      "title": "indication",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "Bilan cardiovasculaire",
+        "Bilan pré opératoire",
+        "Bilan dans le cadre du suivi d'une chimiothérapie",
+        "Suivi d'un RAO lâche",
+        "Bilan d'une douleur thoracique",
+        "Suivi d'un épanchement péricardique",
+        "Suivi d'un anévrysme de l'aorte ascendante",
+        "Suivi du diabète",
+        "Suivi post TAVI",
+        "Bilan d'un souffle cardiaque",
+        "Suivi d'une cardiopathie hypokinétique",
+        "Suivi de cardiopathie ischémique",
+        "ETO : Bilan d'AIT / AVC",
+        "Bilan de dyspnée"
+      ]
+    },
+    {
+      "index": 62,
+      "title": "Morphologie ventriculaire gauche:",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "VG non dilaté non hypertrophique",
+        "Morphologie ventriculaire gauche normale",
+        "HVG concentrique",
+        "HVG excentrique",
+        "VG non dilaté",
+        "Dilatation du ventricule gauche",
+        "modérée",
+        "importante"
+      ]
+    },
+    {
+      "index": 63,
+      "title": "FEVG",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "Bonne FEVG visuellement (> 55%)",
+        "FEVG préservée",
+        "Bonne FEVG",
+        "FEVG < 30%",
+        "FEVG 30-35%",
+        "FEVG 35 -40%",
+        "FEVG 40-45%",
+        "FEVG 45-50%",
+        "FEVG 50-55%"
+      ]
+    },
+    {
+      "index": 64,
+      "title": "Cinétique segmentaire",
+      "type": "CHECKBOX",
+      "helpText": "1: B A, 2:  B AS, 3: B IS, 4: B I, 5: B IL, 6: B AL, 7: M A, 8: M AS , 9 M IS, 10: M I, 11:M IL, 12: M AL, 13: A A, 14: A S,  15: A I, 16: A L, 17: A ",
+      "choices": [
+        "Absence de trouble de la cinétique ventriculaire gauche",
+        "Hypokinésie globale",
+        "akinésie de la couronne apicale",
+        "cinétique segmentaire normale",
+        "hypokinésie antérieure",
+        "hypokinésie antéroseptale",
+        "hypokinésie inféroseptale",
+        "hypokinésie inférieure",
+        "hypokinésie inféro latérale",
+        "hypokinésie antérolatérale",
+        "hypokinésie septo apicale",
+        "hypokinésie latéro apicale",
+        "hypokinésie de la couronne apicale",
+        "hypokinésie du segment apical",
+        "minime",
+        "modérée",
+        "sévère",
+        "basale",
+        "médiane"
+      ]
+    },
+    {
+      "index": 65,
+      "title": "Valvulopathies",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "absence de valvulopathie significative",
+        "Rétrécissement aortique lache",
+        "Rétrécissement aortique sérré",
+        "insuffisance aortique",
+        "insuffisance mitrale",
+        "minime",
+        "modéré",
+        "sévère",
+        "sclérose aortique modérée",
+        "calcification aortique modérée",
+        "valve aortique bicuspide",
+        "valve aortique tricuspide",
+        "calcification importante de la valve aortique",
+        "calcification de la valve mitrale",
+        "Absence de valvulopathie significative, pas d'éléments mobiles, pas d'abcès périvalvulaires",
+        "Présence d'un FOP avec décollement d’environ 5 mm du septum primum et passage de sang nettement visualisé en flux doppler",
+        "Absence de FOP ou d'ASIA",
+        "gradient moyen trans valvulaire aortique (mmHg) :"
+      ]
+    },
+    {
+      "index": 66,
+      "title": "Pression de remplissage VG",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "Profil transmitral : normal/ pas de trouble de la relaxation",
+        "profil mitral type 1",
+        "profil mitral type 2",
+        "Pressions de remplissage VG normales",
+        "Elévation des pressions de remplissage VG",
+        "Profil mitral type E unique (en FA)",
+        "VCI dilatée",
+        "VCI fine, complainte",
+        "Oreillette gauche dilatée",
+        "FOP visible",
+        "ASIA visible",
+        "Pas de FOP visible.",
+        "Pas d'ASIA visible",
+        "Auricule libre avec bon flux de vidange"
+      ]
+    },
+    {
+      "index": 67,
+      "title": "Cavités droites",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "Cavités droites non dilatées . Absence de signe d'HTAP. IT et PAPS non mesurables",
+        "Cavités droites dilatées",
+        "Cavités droites non dilatées",
+        "Absence d'HTAP",
+        "HTAP",
+        "bonne fonction systolique VD",
+        "altération de la fonction systolique VD"
+      ]
+    },
+    {
+      "index": 68,
+      "title": "Pericarde",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "Péricarde libre",
+        "Epanchement péricardique",
+        "infracentimètrique",
+        "circonférenciel",
+        "Décollement péricardique"
+      ]
+    },
+    {
+      "index": 69,
+      "title": "Aorte ascendante",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "Aorte ascendante non dilatée",
+        "Aorte ascendante dilatée",
+        "pas d'anomalie ni plaques au niveau de l'aorte ascendante.",
+        "petites plaques d'athérome visualisées au niveau de l'aorte ascendante."
+      ]
+    },
+    {
+      "index": 70,
+      "title": "OG",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "OG non dilatée",
+        "OG modérément dilatée",
+        "OG dilatée",
+        "Auricule libre avec bon flux de vidange au doppler (>> 25cm/s)"
+      ]
+    },
+    {
+      "index": 71,
+      "title": "Au total",
+      "type": "CHECKBOX",
+      "helpText": "",
+      "choices": [
+        "Stabilité sur le plan échographique",
+        "Echographie cardiaque dans les limites de la normale",
+        "Echographie cardiaque normale",
+        "Bonne FEVG",
+        "Rao lâche",
+        "RAO sérré à fraction d'éjection préservée , symptomatique",
+        "RAO sérré à fraction d'éjection altérée, symptomatique",
+        "IM sévère à réévaluer",
+        "IAo sévère, à réévaluer",
+        "Cardiomyopathie dilatée avec altération de la FEVG. Pressions de remplissage élevées",
+        "Pas d'arguments pour une cardiopathie infectieuse. Pas de végétations ni d'abcès visibles",
+        "Pas d'augments échographiques pour une cardiopathie emboligène. Pas de FOP ni d'ASIA visible.",
+        "Compléter cet examen par ETO + test aux bulles si suspicion clinique importante.",
+        "Cardiopathie ischémique avec troubles de la cinétique segmentaires",
+        "Cardiopathie hypertrophique",
+        "ETT de contrôle dans 1 an",
+        "Bon fonctionnement de la valve biologique aortique sans fuite ni sténose significative. G moyen :",
+        "Gradient moyen transvalvulaire aortique :",
+        "Présence d'un FOP perméable nécessitant une discussion en vue de sa prise en charge.",
+        "Absence d'éléments en faveur d'une cardiopathie emboligène",
+        "Bilan pré opératoire valvulaire aortique comprenant : Coronarographie ( risques et objectifs de l'examen expliqués au patient ce jour); Angio TDM pan aortique (visualisation des accès fémoraux et des tortuosités aortiques, distance des ostia des coronaires par rapport à la valve aortique) ; Echographie des TSAO, panoramique dentaire, radiographie des sinus, ECBU et consultation pré- anesthésique. Dossier envoyé au Dr CHASSAING (NCT à Tours)"
+      ]
     }
   ]
 }
