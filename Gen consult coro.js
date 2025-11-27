@@ -1,5 +1,5 @@
 // ============================================================
-// PROJET CORO - VERSION OPTIMISÉE COMPLÈTE V 2 - 21
+// PROJET CORO - VERSION OPTIMISÉE COMPLÈTE V 2 - 23 side bar at toast
 // ============================================================
 
 // ========== CONFIGURATION GLOBALE ==========
@@ -76,6 +76,16 @@ const CONFIG = {
       '{{radiale}}': 51, '{{educ}}': 52, '{{ECP}}': 53,
       '{{tropo}}': 54, '{{date atc}}': 55
     }
+  },
+  annoncecoro: {
+    templateId: '17AF-J04FR3_u5c2Es_sz6cQHbvF1pZ1KbPG-IUZ1I7c',
+    folderId: '1OmMV6gNOtIK_bEOKQsSUzc6hDwyGhKDH',
+    suffix: 'annonce coro',
+    fields: {
+      '{{date}}': 2, '{{genre}}': 3, '{{nom}}': 4, '{{DN}}': 5,
+      '{{antecedents}}': 7, '{{FDRCV}}': 9, '{{fonctionnel}}': 10,
+      '{{exam indic}}': 56, '{{modif ttt}}': 57
+    }
   }
 };
 
@@ -118,6 +128,7 @@ function generateDocuments(configKey, scanAll = false) {
     
     let processed = 0;
     const colZIndex = COL_Z - 1;
+    const generatedDocs = [];
     
     rows.forEach((row, index) => {
       const actualRowNumber = startRow + index;
@@ -148,6 +159,11 @@ function generateDocuments(configKey, scanAll = false) {
         
         sheet.getRange(actualRowNumber, COL_Z).setValue(docUrl);
         
+        generatedDocs.push({
+          name: fileName,
+          url: docUrl
+        });
+        
         processed++;
         Logger.log(`  ✅ Document généré: ${fileName}`);
         
@@ -166,6 +182,8 @@ function generateDocuments(configKey, scanAll = false) {
         '✅ Terminé', 
         5
       );
+      
+      showGeneratedDocuments(generatedDocs);
     } else {
       const scope = scanAll ? 'toute la feuille' : `les ${numRows} dernières lignes`;
       SpreadsheetApp.getActiveSpreadsheet().toast(
@@ -196,9 +214,11 @@ function checkIfShouldProcess(cellValue, configKey) {
   
   switch(configKey) {
     case 'coro':
-      return cellValue.includes('coro') && !cellValue.includes('post');
+      return cellValue.includes('coro') && !cellValue.includes('post') && !cellValue.includes('annonce');
     case 'postcoro':
       return cellValue.includes('post') && cellValue.includes('coro');
+    case 'annoncecoro':
+      return cellValue.includes('annonce') && cellValue.includes('coro');
     case 'angio':
       return cellValue.includes('angio');
     case 'ett':
@@ -216,101 +236,93 @@ function generateETT() { generateDocuments('ett'); }
 function generateCoro() { generateDocuments('coro'); }
 function generateAngio() { generateDocuments('angio'); }
 function generatePostCoro() { generateDocuments('postcoro'); }
+function generateAnnonceCoro() { generateDocuments('annoncecoro'); }
 
 // ============================================================
 // SECTION 2 : GÉNÉRATION PAR LOT INTELLIGENTE
 // ============================================================
 
 /**
- * Génération intelligente par lot - Traite TOUS les types automatiquement
+ * Génération rapide (500 dernières lignes)
  */
-function generateAllPending() {
+function generateAllPendingFast() {
+  generateAllPendingInternal(false);
+}
+
+/**
+ * Génération complète (toutes les lignes)
+ */
+function generateAllPendingComplete() {
+  generateAllPendingInternal(true);
+}
+
+/**
+ * Génération intelligente par lot - Version sans popups
+ */
+function generateAllPendingInternal(scanAll = false) {
   const startTime = new Date();
-  const ui = SpreadsheetApp.getUi();
+  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  const modeName = scanAll ? 'COMPLET' : 'RAPIDE';
+  const scope = scanAll ? 'toutes les lignes' : '500 dernières lignes';
   
-  const scanModeResponse = ui.alert(
-    '🔍 Mode de recherche',
-    'Comment voulez-vous rechercher les documents à générer ?\n\n' +
-    '• MODE RAPIDE : Scan des 500 dernières lignes (~5 sec)\n' +
-    '  → Pour les nouveaux patients récents\n\n' +
-    '• MODE COMPLET : Scan de TOUTES les lignes (~30-45 sec)\n' +
-    '  → Pour inclure les anciens patients qui reviennent',
-    ui.ButtonSet.YES_NO_CANCEL
+  // Toast initial
+  spreadsheet.toast(
+    `Analyse en cours (${scope})...`, 
+    `🔍 Scan ${modeName}`, 
+    3
   );
-  
-  if (scanModeResponse === ui.Button.CANCEL) {
-    SpreadsheetApp.getActiveSpreadsheet().toast('Génération annulée', 'ℹ️ Annulé', 3);
-    return;
-  }
-  
-  const scanAll = (scanModeResponse === ui.Button.NO);
-  const modeName = scanAll ? 'COMPLET (toutes les lignes)' : 'RAPIDE (500 dernières)';
   
   const types = [
     { key: 'coro', name: 'Coro' },
     { key: 'angio', name: 'Angio' },
     { key: 'postcoro', name: 'Post Coro' },
+    { key: 'annoncecoro', name: 'Annonce Coro' },
     { key: 'ett', name: 'ETT' },
     { key: 'hospit', name: 'Hospit' }
   ];
   
-  const results = [];
-  let totalProcessed = 0;
-  
-  SpreadsheetApp.getActiveSpreadsheet().toast(
-    `Analyse en cours (mode ${scanAll ? 'complet' : 'rapide'})...`, 
-    '🔍 Scan des documents à générer', 
-    3
-  );
-  
+  // Analyser les documents à générer
   const stats = analyzePendingDocuments(scanAll);
   
   if (stats.total === 0) {
-    ui.alert(
-      'Aucun document à générer', 
-      `Aucune ligne ne contient "coro", "angio", "ett", "post coro" ou "hospit" en colonne Z.\n\n` +
-      `Portée : ${stats.scope}`,
-      ui.ButtonSet.OK
+    spreadsheet.toast(
+      `Aucun document à générer (${scope})`, 
+      'ℹ️ Rien à faire', 
+      5
     );
     return;
   }
   
-  const response = ui.alert(
-    '📋 Documents à générer',
-    `Mode : ${modeName}\n` +
-    `Portée : ${stats.scope}\n\n` +
-    `Documents trouvés :\n\n` +
-    `• Coro : ${stats.coro}\n` +
-    `• Angio : ${stats.angio}\n` +
-    `• Post Coro : ${stats.postcoro}\n` +
-    `• ETT : ${stats.ett}\n` +
-    `• Hospit : ${stats.hospit}\n\n` +
-    `TOTAL : ${stats.total} document(s)\n\n` +
-    `Voulez-vous continuer ?`,
-    ui.ButtonSet.YES_NO
+  // Afficher les stats et commencer directement
+  const statsMsg = `Coro: ${stats.coro} | Angio: ${stats.angio} | Post: ${stats.postcoro} | Annonce: ${stats.annoncecoro} | ETT: ${stats.ett} | Hospit: ${stats.hospit}`;
+  spreadsheet.toast(
+    `${stats.total} document(s) trouvé(s) - Génération en cours...`, 
+    `📋 ${modeName}: ${statsMsg}`, 
+    4
   );
   
-  if (response !== ui.Button.YES) {
-    SpreadsheetApp.getActiveSpreadsheet().toast('Génération annulée', 'ℹ️ Annulé', 3);
-    return;
-  }
+  const results = [];
+  let totalProcessed = 0;
+  const allGeneratedDocs = [];
   
+  // Générer chaque type
   types.forEach(type => {
     if (stats[type.key] > 0) {
-      SpreadsheetApp.getActiveSpreadsheet().toast(
-        `Génération ${type.name}...`, 
-        `⏳ ${type.name}`, 
+      spreadsheet.toast(
+        `Traitement en cours...`, 
+        `⏳ ${type.name} (${stats[type.key]})`, 
         2
       );
       
       try {
-        const count = generateDocumentsSilent(type.key, scanAll);
-        if (count > 0) {
-          results.push(`✅ ${type.name}: ${count} document(s)`);
-          totalProcessed += count;
+        const docsInfo = generateDocumentsSilentWithUrls(type.key, scanAll);
+        if (docsInfo.count > 0) {
+          results.push(`${type.name}: ${docsInfo.count}`);
+          totalProcessed += docsInfo.count;
+          allGeneratedDocs.push(...docsInfo.documents);
         }
       } catch (err) {
-        results.push(`❌ ${type.name}: Erreur - ${err.message}`);
+        results.push(`${type.name}: Erreur`);
         Logger.log(`Erreur ${type.name}: ${err.message}`);
       }
     }
@@ -319,19 +331,20 @@ function generateAllPending() {
   const endTime = new Date();
   const duration = ((endTime - startTime) / 1000).toFixed(1);
   
+  // Toast final
   if (totalProcessed > 0) {
-    ui.alert(
-      '✅ Génération terminée',
-      `Mode : ${modeName}\n` +
-      `${totalProcessed} document(s) généré(s) en ${duration}s\n\n` +
-      results.join('\n'),
-      ui.ButtonSet.OK
+    spreadsheet.toast(
+      `${totalProcessed} document(s) créé(s) en ${duration}s | ${results.join(' | ')}`, 
+      `✅ ${modeName} terminé`, 
+      8
     );
+    
+    showGeneratedDocuments(allGeneratedDocs);
   } else {
-    ui.alert(
-      'ℹ️ Aucun document généré',
-      'Tous les documents détectés ont déjà été traités.',
-      ui.ButtonSet.OK
+    spreadsheet.toast(
+      `Documents déjà générés (${scope})`, 
+      'ℹ️ Rien de nouveau', 
+      5
     );
   }
 }
@@ -354,7 +367,7 @@ function analyzePendingDocuments(scanAll = false) {
   const colZIndex = COL_Z - 1;
   
   const stats = {
-    coro: 0, angio: 0, postcoro: 0, ett: 0, hospit: 0, total: 0,
+    coro: 0, angio: 0, postcoro: 0, annoncecoro: 0, ett: 0, hospit: 0, total: 0,
     scope: scanAll ? 'toutes les lignes' : `${numRows} dernières lignes`
   };
   
@@ -364,7 +377,9 @@ function analyzePendingDocuments(scanAll = false) {
     
     const cellValueLower = cellValue.toLowerCase();
     
-    if (cellValueLower.includes('post') && cellValueLower.includes('coro')) {
+    if (cellValueLower.includes('annonce') && cellValueLower.includes('coro')) {
+      stats.annoncecoro++; stats.total++;
+    } else if (cellValueLower.includes('post') && cellValueLower.includes('coro')) {
       stats.postcoro++; stats.total++;
     } else if (cellValueLower.includes('coro')) {
       stats.coro++; stats.total++;
@@ -380,7 +395,7 @@ function analyzePendingDocuments(scanAll = false) {
   return stats;
 }
 
-function generateDocumentsSilent(configKey, scanAll = false) {
+function generateDocumentsSilentWithUrls(configKey, scanAll = false) {
   const config = CONFIG[configKey];
   if (!config) throw new Error(`Configuration inconnue: ${configKey}`);
   
@@ -396,6 +411,7 @@ function generateDocumentsSilent(configKey, scanAll = false) {
   
   let processed = 0;
   const colZIndex = COL_Z - 1;
+  const generatedDocs = [];
   
   rows.forEach((row, index) => {
     const actualRowNumber = startRow + index;
@@ -418,7 +434,14 @@ function generateDocumentsSilent(configKey, scanAll = false) {
       });
       
       doc.saveAndClose();
-      sheet.getRange(actualRowNumber, COL_Z).setValue(doc.getUrl());
+      const docUrl = doc.getUrl();
+      sheet.getRange(actualRowNumber, COL_Z).setValue(docUrl);
+      
+      generatedDocs.push({
+        name: fileName,
+        url: docUrl
+      });
+      
       processed++;
       
     } catch (rowErr) {
@@ -426,7 +449,7 @@ function generateDocumentsSilent(configKey, scanAll = false) {
     }
   });
   
-  return processed;
+  return { count: processed, documents: generatedDocs };
 }
 
 // ============================================================
@@ -537,20 +560,18 @@ function syncAllFormEditLinks() {
       Logger.log(`✅ ${newResponses.length} nouveaux liens ajoutés`);
     }
     
-    const ui = SpreadsheetApp.getUi();
-    ui.alert(
-      '✅ Synchronisation terminée',
-      `${newResponses.length} lien(s) d'édition ajouté(s) dans la feuille 'editResponseUrl'.\n\n` +
-      `Ces liens apparaîtront automatiquement en colonne BL grâce à votre formule ARRAYFORMULA.`,
-      ui.ButtonSet.OK
+    SpreadsheetApp.getActiveSpreadsheet().toast(
+      `${newResponses.length} lien(s) d'édition ajouté(s) - Visibles en colonne BL`, 
+      '✅ Synchronisation terminée', 
+      6
     );
     
   } catch (err) {
     Logger.log(`❌ Erreur syncAllFormEditLinks: ${err.message}`);
-    SpreadsheetApp.getUi().alert(
-      'Erreur',
-      `Erreur lors de la synchronisation: ${err.message}`,
-      SpreadsheetApp.getUi().ButtonSet.OK
+    SpreadsheetApp.getActiveSpreadsheet().toast(
+      `Erreur: ${err.message}`, 
+      '❌ Échec de synchronisation', 
+      8
     );
   }
 }
@@ -581,39 +602,83 @@ function setupFormTrigger() {
     
     Logger.log('✅ Déclencheur onFormSubmitSync créé');
     
-    SpreadsheetApp.getUi().alert(
-      '✅ Configuration réussie',
-      'Le déclencheur automatique a été configuré.\n\n' +
-      'Les liens d\'édition seront maintenant ajoutés automatiquement dans la feuille "editResponseUrl" à chaque envoi du formulaire.\n\n' +
-      'NOTE: Votre script de génération automatique des CR consultation (dans le formulaire) continue de fonctionner normalement.',
-      SpreadsheetApp.getUi().ButtonSet.OK
+    SpreadsheetApp.getActiveSpreadsheet().toast(
+      'Déclencheur automatique configuré - Les liens seront ajoutés automatiquement', 
+      '✅ Configuration réussie', 
+      6
     );
     
   } catch (err) {
     Logger.log(`❌ Erreur setupFormTrigger: ${err.message}`);
-    SpreadsheetApp.getUi().alert(
-      'Erreur',
-      `Erreur lors de la configuration: ${err.message}`,
-      SpreadsheetApp.getUi().ButtonSet.OK
+    SpreadsheetApp.getActiveSpreadsheet().toast(
+      `Erreur: ${err.message}`, 
+      '❌ Échec de configuration', 
+      8
     );
   }
 }
 
 // ============================================================
-// SECTION 5 : MENU PERSONNALISÉ
+// SECTION 5 : AFFICHAGE DES DOCUMENTS GÉNÉRÉS
+// ============================================================
+
+/**
+ * Affiche les documents générés dans une sidebar avec liens cliquables
+ */
+function showGeneratedDocuments(documents) {
+  if (documents.length === 0) return;
+  
+  let html = '<style>' +
+    'body { font-family: Arial, sans-serif; padding: 15px; background-color: #f8f9fa; }' +
+    'h3 { color: #1a73e8; margin-top: 0; border-bottom: 2px solid #1a73e8; padding-bottom: 10px; }' +
+    'ul { padding-left: 0; list-style: none; }' +
+    'li { margin: 12px 0; padding: 12px; background-color: white; border-radius: 8px; ' +
+    '     box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: box-shadow 0.2s; }' +
+    'li:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.15); }' +
+    'a { color: #1a73e8; text-decoration: none; display: flex; align-items: center; }' +
+    'a:hover { text-decoration: underline; }' +
+    'a::before { content: "📄"; margin-right: 8px; font-size: 18px; }' +
+    '.count { color: #5f6368; font-size: 14px; background-color: #e8f0fe; ' +
+    '         padding: 8px 12px; border-radius: 4px; display: inline-block; margin-bottom: 15px; }' +
+    '.footer { color: #5f6368; font-size: 12px; margin-top: 20px; padding-top: 15px; ' +
+    '          border-top: 1px solid #dadce0; text-align: center; }' +
+    '</style>';
+  
+  html += '<h3>📄 Documents générés</h3>';
+  html += '<div class="count">✅ ' + documents.length + ' document(s) créé(s)</div>';
+  html += '<ul>';
+  
+  documents.forEach(doc => {
+    html += '<li><a href="' + doc.url + '" target="_blank">' + doc.name + '</a></li>';
+  });
+  
+  html += '</ul>';
+  html += '<div class="footer">Cliquez sur un lien pour ouvrir le document dans un nouvel onglet</div>';
+  
+  const htmlOutput = HtmlService.createHtmlOutput(html)
+    .setTitle('Documents générés')
+    .setWidth(450);
+  
+  SpreadsheetApp.getUi().showSidebar(htmlOutput);
+}
+
+// ============================================================
+// SECTION 6 : MENU PERSONNALISÉ
 // ============================================================
 
 function onOpen() {
   const ui = SpreadsheetApp.getUi();
   
   ui.createMenu('📋 Comptes rendus')
-    .addItem('⚡ GÉNÉRER TOUT (intelligent)', 'generateAllPending')
+    .addItem('⚡ SCAN RAPIDE (500 dernières)', 'generateAllPendingFast')
+    .addItem('🔍 SCAN COMPLET (toutes les lignes)', 'generateAllPendingComplete')
     .addSeparator()
     .addItem('Compte rendu hospit', 'createNewGoogleDocs')
     .addItem('Compte rendu ETT', 'generateETT')
     .addItem('Compte rendu coro', 'generateCoro')
     .addItem('Compte rendu angio', 'generateAngio')
     .addItem('Compte rendu post coro', 'generatePostCoro')
+    .addItem('Compte rendu annonce coro', 'generateAnnonceCoro')
     .addToUi();
   
   ui.createMenu('🔗 Liens formulaires')
