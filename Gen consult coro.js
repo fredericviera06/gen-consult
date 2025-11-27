@@ -475,12 +475,12 @@ function generateDocumentsSilentWithUrls(configKey, scanAll = false) {
   
   rows.forEach((row, index) => {
     const actualRowNumber = startRow + index;
-    const cellValue = row[colZIndex] ? row[colZIndex].toString().trim() : '';
+    const cellValue = row[colZIndex] ?  row[colZIndex]. toString(). trim() : '';
     
-    if (cellValue.startsWith('http')) return;
+    if (cellValue. startsWith('http')) return;
     
     const cellValueLower = cellValue.toLowerCase();
-    if (!checkIfShouldProcess(cellValueLower, configKey)) return;
+    if (! checkIfShouldProcess(cellValueLower, configKey)) return;
     
     try {
       const fileName = `${row[2]} - ${row[4]} ${config.suffix}`;
@@ -488,9 +488,16 @@ function generateDocumentsSilentWithUrls(configKey, scanAll = false) {
       const doc = DocumentApp.openById(copy.getId());
       const body = doc.getBody();
       
+      // ✅ NOUVEAUTÉ: Formater la date avant le remplacement
       Object.entries(config.fields).forEach(([token, colIndex]) => {
-        const value = row[colIndex] !== undefined && row[colIndex] !== null ? row[colIndex] : '';
-        body.replaceText(token, value.toString());
+        let value = row[colIndex] !== undefined && row[colIndex] !== null ?  row[colIndex] : '';
+        
+        // Si c'est le token {{date}}, formater la date
+        if (token === '{{date}}') {
+          value = formatDateForDocument(value);
+        }
+        
+        body.replaceText(token, value. toString());
       });
       
       doc.saveAndClose();
