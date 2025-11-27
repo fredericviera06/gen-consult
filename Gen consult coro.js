@@ -8,6 +8,48 @@ const SHEET_NAME_DATA = 'Data';
 const SHEET_NAME_URLS = 'editResponseUrl'; // Feuille où on stocke les liens
 const COL_Z = 26; // Colonne Z où on lit le type ET où on met le lien du document
 
+// ============================================================
+// SECTION 0 : UTILITAIRES - FORMATAGE DE DATES
+// ============================================================
+
+/**
+ * Formate correctement une date pour les documents générés
+ * @param {Date|String} dateValue - La date à formater
+ * @returns {String} - Date formatée en JJ/MM/YYYY
+ */
+function formatDateForDocument(dateValue) {
+  try {
+    let date;
+    
+    // Si c'est une chaîne
+    if (typeof dateValue === 'string') {
+      // Essayer de parser la chaîne
+      date = new Date(dateValue);
+    } else if (dateValue instanceof Date) {
+      date = dateValue;
+    } else {
+      return ''; // Retourner vide si format inconnu
+    }
+    
+    // Vérifier que c'est une date valide
+    if (isNaN(date. getTime())) {
+      return dateValue; // Retourner la valeur originale si invalide
+    }
+    
+    // Formater en JJ/MM/YYYY
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    
+    return `${day}/${month}/${year}`;
+    
+  } catch (err) {
+    Logger.log(`⚠️ Erreur formatage date: ${err.message}`);
+    return dateValue;
+  }
+}
+
+
 // Configuration des différents types de documents
 const CONFIG = {
   hospit: {
